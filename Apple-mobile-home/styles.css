@@ -1,0 +1,446 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+
+html {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+#shop {
+    opacity: 100%;
+}
+
+body {
+    margin: 0;
+    z-index: -1;
+}
+
+.ribbon-online-shop {
+    width: 100%;
+    position: absolute;
+    top: 48px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"]:checked+.navbar {
+        background-color: black;
+    }
+    input[type="checkbox"]:checked+.navbar .mobile-menu {
+        height: calc(100vh - 48px);
+        transition: height 0.5s ease-in-out;
+    }
+    input[type="checkbox"]:checked+.navbar #shop {
+        opacity: 0%;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 48px;
+        background-color: rgb(58 58 58);
+        display: flex;
+        backdrop-filter: blur(20px);
+        padding: 0 16px;
+        justify-content: space-between;
+        transition: background-color 0.5s ease-in-out;
+        z-index: 1;
+    }
+    .navbar>img {
+        height: 48px;
+    }
+    .menu {
+        fill: rgb(214 214 214);
+        height: 48px;
+        width: 48px;
+        padding: 10px 0;
+        margin-top: 5px;
+    }
+    nav>.mobile-menu {
+        width: 100%;
+        background-color: rgb(0 0 0);
+        color: rgb(204 204 204);
+        position: absolute;
+        top: 48px;
+        margin-left: -16px;
+        height: 0;
+        overflow: hidden;
+        transition: background-color 5s ease-in-out;
+    }
+    ul {
+        padding: 0px 40px 8px;
+        margin: 0 auto;
+    }
+    nav>div>ul>li {
+        list-style: none;
+        height: 44px;
+        font-size: 17px;
+        border-bottom: ;
+        display: grid;
+    }
+    .mobile-menu>.search-wrap::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #424244;
+        position: absolute;
+        left: 0;
+        top: 53px;
+    }
+    .mobile-menu>ul>li::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #424245;
+    }
+    .search-wrap {
+        height: 53px;
+        width: 100%;
+        padding: 0px 10px;
+    }
+    .search-box {
+        background-color: #1d1d20;
+        height: 18px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    input[type="checkbox"]:checked+.navbar .mobile-menu .search-wrap .search-box {
+        height: 36px;
+        transition: height 0.5s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 734px) {
+    h2 {
+        font-size: 32px;
+        font-weight: 600;
+        margin: 0 auto;
+    }
+    h3 {
+        font-size: 19px;
+        font-weight: 400;
+        margin-top: 2px;
+    }
+    .iphone12pro h2 {
+        color: white;
+    }
+    .iphone12pro h3 {
+        color: white;
+    }
+    p {
+        width: 250px;
+        font-size: 14px;
+        font-weight: 300;
+        margin: 0 auto;
+        color: #86868b;
+    }
+    .ribbon-online-shop {
+        width: 100%;
+        position: absolute;
+        top: 48px;
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 13.5px;
+        background-color: #f5f5f7;
+    }
+    .ribbon-text {
+        width: 82.5%;
+    }
+    .links {
+        text-decoration: none;
+        color: #06c;
+    }
+    .links:hover {
+        text-decoration: underline;
+    }
+    .hero {
+        position: absolute;
+        top: 88px;
+        height: 500px;
+        width: 100%;
+        background-image: url(images/iphone_12_734px.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .content-text {
+        text-align: center;
+        margin: 0 auto;
+        padding: 37px 15px 0px;
+    }
+    .iphone12pro {
+        position: absolute;
+        top: 588px;
+        margin-top: 10px;
+        height: 500px;
+        width: 100%;
+        background-image: url(images/iphone_12_pro_734px.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .links-container {
+        display: flex;
+        width: 270px;
+        justify-content: space-between;
+        margin: 13px auto 0px;
+        font-size: 19px;
+    }
+    .links-container a {
+        text-decoration: none;
+        color: #06c;
+        font-weight: 300;
+    }
+    .links-container a:hover {
+        text-decoration: underline;
+    }
+    .row-1 {
+        top: 1088px;
+        height: 1012px;
+        margin-top: 18px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+    }
+    .iwatch {
+        width: 100%;
+        height: 500px;
+        background-color: black;
+        background-image: url(images/watch_734px.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+    .iwatch h4 {
+        color: white;
+        margin: 26px 17px 0px;
+        font-size: 32px;
+        font-weight: 400;
+    }
+    .iwatch h4 img {
+        height: 46px;
+    }
+    .iwatch h5 {
+        color: white;
+        margin: 4px auto 0px;
+        font-size: 18px;
+        font-weight: 250;
+        width: 90%;
+        max-width: 330px;
+        flex-wrap: wrap;
+    }
+    .card-links-container {
+        display: flex;
+        width: 270px;
+        justify-content: space-between;
+        margin: 13px auto 0px;
+        font-size: 19px;
+    }
+    .card-links-container a {
+        text-decoration: none;
+        color: #06c;
+        font-weight: 300;
+    }
+    .card-links-container a:hover {
+        text-decoration: underline;
+    }
+    .macbook {
+        width: 100%;
+        height: 500px;
+        margin-top: 12px;
+        background-color: black;
+        background-image: url(images/macbook_734px.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+    .macbook h4 {
+        color: white;
+        margin: 42px 17px 0px;
+        font-size: 32px;
+        font-weight: 400;
+    }
+    .macbook h5 {
+        color: white;
+        margin: 4px auto 0px;
+        font-size: 18px;
+        font-weight: 250;
+        width: 90%;
+        max-width: 330px;
+    }
+}
+
+@media screen and (min-width: 734px) {
+    h2 {
+        font-size: 48px;
+        font-weight: 600;
+        margin: 0 auto;
+    }
+    h3 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 5px auto 7px;
+    }
+    p {
+        width: 388px;
+        margin: 0 auto;
+        color: #86868b;
+        font-size: 17px;
+        font-weight: 300;
+    }
+    .ribbon-online-shop {
+        width: 100%;
+        position: absolute;
+        top: 48px;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 13.5px;
+        background-color: #f5f5f7;
+    }
+    .ribbon-text {
+        max-width: 600px;
+    }
+    .ribbon-text a {
+        text-decoration: none;
+        color: #06c;
+    }
+    .ribbon-text a:hover {
+        text-decoration: underline;
+    }
+    .hero {
+        position: absolute;
+        top: 88px;
+        height: 650px;
+        width: 100%;
+        background-image: url(images/iphone_12_735-1028px.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .content-text {
+        text-align: center;
+        margin: 0 auto;
+        padding: 61px 15px 0px;
+    }
+    .links {
+        height: 23px;
+    }
+    .iphone12pro {
+        position: absolute;
+        top: 733px;
+        margin-top: 18px;
+        height: 650px;
+        width: 100%;
+        background-image: url(images/iphone_12_pro_734-1028px.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+    .iphone12pro h2 {
+        color: white;
+    }
+    .iphone12pro h3 {
+        color: white;
+    }
+    .links-container {
+        display: flex;
+        width: 270px;
+        justify-content: space-between;
+        margin: 14px auto 0px;
+        font-size: 19px;
+    }
+    .links-container a {
+        text-decoration: none;
+        color: #06c;
+        font-weight: 300;
+    }
+    .links-container a:hover {
+        text-decoration: underline;
+    }
+    .row-1 {
+        top: 1401px;
+        height: 490px;
+        margin-top: 18px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        justify-content: space-evenly;
+    }
+    .iwatch {
+        width: 48%;
+        background-color: black;
+        background-image: url(images/watch_735-1028px.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+    .iwatch h4 {
+        color: white;
+        margin: 26px 17px 0px;
+        font-size: 32px;
+        font-weight: 400;
+    }
+    .iwatch h4 img {
+        height: 46px;
+        margin-top: 14px;
+    }
+    .iwatch h5 {
+        color: white;
+        margin: 4px auto 0px;
+        font-size: 18px;
+        font-weight: 250;
+        width: 90%;
+        max-width: 330px;
+        flex-wrap: wrap;
+    }
+    .card-links-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 13px auto 0px;
+        font-size: 17px;
+    }
+    .card-links-container a {
+        text-decoration: none;
+        color: #06c;
+        font-weight: 300;
+    }
+    .card-links-container a:hover {
+        text-decoration: underline;
+    }
+    .macbook {
+        width: 48%;
+        background-color: black;
+        background-image: url(images/macbook_735-1028px.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+    .macbook h4 {
+        color: white;
+        margin: 42px 17px 0px;
+        font-size: 32px;
+        font-weight: 400;
+    }
+    .macbook h5 {
+        color: white;
+        margin: 4px auto 0px;
+        font-size: 18px;
+        font-weight: 250;
+        width: 90%;
+        max-width: 330px;
+    }
+}
